@@ -1,13 +1,15 @@
 import { useProgresso } from '@/hooks/use-progresso'
 import { getLicaoId } from '@/lib/course'
 import type { Licao, Modulo } from '@/lib/types'
+import { wikiImagensPorAula } from '@/lib/wiki-images'
 import { BadgeNivel } from './badge-nivel'
 import { cn } from '@/lib/utils'
 import {
   CheckCircle2, Clock, BookOpen, Zap, Target, HelpCircle,
-  ChevronRight, ChevronLeft, BarChart3, Lightbulb, AlertTriangle,
+  ChevronRight, ChevronLeft, BarChart3, Lightbulb, AlertTriangle, Images,
 } from 'lucide-react'
 import { Link } from 'wouter'
+import { useState } from 'react'
 
 type Props = {
   modulo: Modulo
@@ -16,13 +18,40 @@ type Props = {
   licaoProxima?: { slug: string; titulo: string }
 }
 
+function ImagemLightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+      onClick={onClose}
+    >
+      <img
+        src={src}
+        alt={alt}
+        className="max-h-[90vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      />
+    </div>
+  )
+}
+
 export function LessonView({ modulo, licao, licaoAnterior, licaoProxima }: Props) {
   const { alternar, estaConcluida } = useProgresso()
   const id = getLicaoId(modulo.slug, licao.slug)
   const concluida = estaConcluida(id)
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
+
+  const imagens = wikiImagensPorAula[id] ?? []
 
   return (
     <article className="max-w-3xl mx-auto px-4 py-8">
+      {lightbox && (
+        <ImagemLightbox
+          src={lightbox.src}
+          alt={lightbox.alt}
+          onClose={() => setLightbox(null)}
+        />
+      )}
+
       {/* Header */}
       <header className="mb-8">
         <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
@@ -57,6 +86,46 @@ export function LessonView({ modulo, licao, licaoAnterior, licaoProxima }: Props
               {p}
             </p>
           ))}
+        </div>
+      )}
+
+      {/* Wiki Images Gallery */}
+      {imagens.length > 0 && (
+        <div className="mb-8">
+          <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+            <Images className="h-4 w-4 text-primary" />
+            Imagens do Wiki Oficial
+          </h3>
+          <div className={cn(
+            'grid gap-3',
+            imagens.length === 1 ? 'grid-cols-1' :
+            imagens.length === 2 ? 'grid-cols-2' :
+            'grid-cols-2 sm:grid-cols-3'
+          )}>
+            {imagens.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setLightbox({ src: img.src, alt: img.alt })}
+                className="group rounded-lg border border-border overflow-hidden bg-muted/30 text-left hover:border-primary/50 transition-all"
+              >
+                <div className="aspect-video overflow-hidden bg-muted/50">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                {img.legenda && (
+                  <p className="px-2 py-1.5 text-xs text-muted-foreground leading-snug">
+                    {img.legenda}
+                  </p>
+                )}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground mt-2 flex items-center gap-1">
+            <span>Clique em qualquer imagem para ampliar</span>
+          </p>
         </div>
       )}
 
