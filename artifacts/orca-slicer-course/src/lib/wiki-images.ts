@@ -4,7 +4,7 @@ export interface WikiImagem {
   legenda?: string
 }
 
-const W = '/wiki/'
+const W = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '') + '/wiki/'
 const I = (src: string, alt: string, legenda?: string): WikiImagem => ({ src: W + src, alt, legenda })
 
 export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
