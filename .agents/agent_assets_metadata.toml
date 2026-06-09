@@ -1,0 +1,62 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "vhTIIiM5GJYG0uHPYUFxj"
+uri = "file://artifacts/orca-slicer-course/public/wiki/gen-pla-quality.png"
+type = "image"
+title = "pla quality print"
+
+[[generated]]
+id = "FAE__1E9H1bG9sYSN4Pa8"
+uri = "file://artifacts/orca-slicer-course/public/wiki/gen-temp-tower.png"
+type = "image"
+title = "temperature tower calibration"
+
+[[generated]]
+id = "kQ0VYkiDz8xr_RkcyAp6h"
+uri = "file://artifacts/orca-slicer-course/public/wiki/gen-flow-caliper.png"
+type = "image"
+title = "caliper measuring flow cube"
+
+[[generated]]
+id = "Dc_gEzpEwK7gRPygdOJTr"
+uri = "file://artifacts/orca-slicer-course/public/wiki/gen-pa-comparison.png"
+type = "image"
+title = "pressure advance comparison"
+
+[[generated]]
+id = "7NvRBXonl5b6h0mu4a-pd"
+uri = "file://artifacts/orca-slicer-course/public/wiki/gen-retraction-tower.png"
+type = "image"
+title = "retraction stringing tower"
+
+[[generated]]
+id = "wqAS5HfItAENF3RTngwxN"
+uri = "file://artifacts/orca-slicer-course/public/wiki/gen-functional-gears.png"
+type = "image"
+title = "functional gears 3D print"
+
+[[generated]]
+id = "duRm6UNUWwcOi9ELi8exD"
+uri = "file://artifacts/orca-slicer-course/public/wiki/gen-infill-crosssection.png"
+type = "image"
+title = "gyroid infill cross-section"
+
+[[generated]]
+id = "glTpbwDDw8Wedx6Kz_c33"
+uri = "file://artifacts/orca-slicer-course/public/wiki/gen-fuzzy-skin-vase.png"
+type = "image"
+title = "fuzzy skin decorative vase"
+
+[[generated]]
+id = "bCuFHkuLpZVnPY9dzAA8-"
+uri = "file://artifacts/orca-slicer-course/public/wiki/gen-ironing-surface.png"
+type = "image"
+title = "ironing surface finish"
+
+[[generated]]
+id = "t6rFiuYfjfoqty01IninW"
+uri = "file://artifacts/orca-slicer-course/public/wiki/gen-nozzle-closeup.png"
+type = "image"
+title = "3D printer nozzle closeup"
