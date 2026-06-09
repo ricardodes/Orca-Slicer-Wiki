@@ -89,76 +89,62 @@ export function LessonView({ modulo, licao, licaoAnterior, licaoProxima }: Props
         </div>
       )}
 
-      {/* Wiki Images Gallery */}
-      {imagens.length > 0 && (
-        <div className="mb-8">
-          <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-            <Images className="h-4 w-4 text-primary" />
-            Imagens do Wiki Oficial
-          </h3>
-          <div className={cn(
-            'grid gap-3',
-            imagens.length === 1 ? 'grid-cols-1' :
-            imagens.length === 2 ? 'grid-cols-2' :
-            'grid-cols-2 sm:grid-cols-3'
-          )}>
-            {imagens.map((img, i) => (
+      {/* Sections com imagens inline */}
+      {licao.secoes.map((secao, i) => {
+        const img = imagens.length > 0 ? imagens[i % imagens.length] : null
+        return (
+          <section key={i} className="mb-10">
+            {img && (
               <button
-                key={i}
                 onClick={() => setLightbox({ src: img.src, alt: img.alt })}
-                className="group rounded-lg border border-border overflow-hidden bg-muted/30 text-left hover:border-primary/50 transition-all"
+                className="group w-full mb-5 rounded-xl overflow-hidden border border-border hover:border-primary/60 transition-all block text-left"
+                title="Clique para ampliar"
               >
-                <div className="aspect-video overflow-hidden bg-muted/50">
+                <div className="w-full bg-muted/40 overflow-hidden" style={{ maxHeight: '420px' }}>
                   <img
                     src={img.src}
                     alt={img.alt}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    className="w-full object-contain group-hover:scale-[1.02] transition-transform duration-300"
+                    style={{ maxHeight: '420px' }}
                   />
                 </div>
                 {img.legenda && (
-                  <p className="px-2 py-1.5 text-xs text-muted-foreground leading-snug">
-                    {img.legenda}
-                  </p>
+                  <div className="flex items-center gap-2 px-4 py-2.5 bg-muted/30 border-t border-border">
+                    <Images className="h-3.5 w-3.5 text-primary shrink-0" />
+                    <p className="text-xs text-muted-foreground leading-snug">{img.legenda}</p>
+                  </div>
                 )}
               </button>
-            ))}
-          </div>
-          <p className="text-xs text-muted-foreground mt-2 flex items-center gap-1">
-            <span>Clique em qualquer imagem para ampliar</span>
-          </p>
-        </div>
-      )}
+            )}
 
-      {/* Sections */}
-      {licao.secoes.map((secao, i) => (
-        <section key={i} className="mb-8">
-          <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-            <span className="w-1 h-5 bg-primary rounded-full inline-block" />
-            {secao.titulo}
-          </h2>
-          <ul className="space-y-3">
-            {secao.conteudo.map((item, j) => {
-              const [label, ...rest] = item.split(':')
-              const hasLabel = rest.length > 0 && label.length < 40
-              return (
-                <li key={j} className="flex gap-3 text-sm">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60 shrink-0" />
-                  <span className="text-foreground/90 leading-relaxed">
-                    {hasLabel ? (
-                      <>
-                        <span className="font-medium text-foreground">{label}:</span>
-                        {rest.join(':')}
-                      </>
-                    ) : (
-                      item
-                    )}
-                  </span>
-                </li>
-              )
-            })}
-          </ul>
-        </section>
-      ))}
+            <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+              <span className="w-1 h-5 bg-primary rounded-full inline-block" />
+              {secao.titulo}
+            </h2>
+            <ul className="space-y-3">
+              {secao.conteudo.map((item, j) => {
+                const [label, ...rest] = item.split(':')
+                const hasLabel = rest.length > 0 && label.length < 40
+                return (
+                  <li key={j} className="flex gap-3 text-sm">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60 shrink-0" />
+                    <span className="text-foreground/90 leading-relaxed">
+                      {hasLabel ? (
+                        <>
+                          <span className="font-medium text-foreground">{label}:</span>
+                          {rest.join(':')}
+                        </>
+                      ) : (
+                        item
+                      )}
+                    </span>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+        )
+      })}
 
       {/* Tables */}
       {licao.tabelas && licao.tabelas.length > 0 && (
