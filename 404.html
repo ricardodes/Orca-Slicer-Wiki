@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OrcaSlicer — Curso Avançado</title>
+    <!-- 
+      GitHub Pages SPA Fix:
+      Quando o usuário acessa /modulo/interface/layout-geral diretamente,
+      o GitHub Pages não encontra o arquivo e cai aqui no 404.html.
+      Este script salva a URL no sessionStorage e redireciona para o index.html,
+      que então restaura a rota corretamente via wouter.
+    -->
+    <script>
+      sessionStorage.setItem('spa-redirect', window.location.href);
+      window.location.replace(
+        window.location.origin + window.location.pathname.split('/').slice(0, 2).join('/')
+      );
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando...</p>
+  </body>
+</html>
