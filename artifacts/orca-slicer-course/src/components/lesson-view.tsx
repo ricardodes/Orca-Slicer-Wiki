@@ -89,34 +89,66 @@ export function LessonView({ modulo, licao, licaoAnterior, licaoProxima }: Props
         </div>
       )}
 
-      {/* Sections com imagens inline */}
+      {/* Galeria de imagens da aula */}
+      {imagens.length > 0 && (
+        <div className="mb-10">
+          <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+            <Images className="h-4 w-4 text-primary" />
+            Imagens da Aula
+          </h3>
+          {imagens.length === 1 ? (
+            <button
+              onClick={() => setLightbox({ src: imagens[0].src, alt: imagens[0].alt })}
+              className="group w-full rounded-xl overflow-hidden border border-border hover:border-primary/60 transition-all block text-left"
+              title="Clique para ampliar"
+            >
+              <div className="w-full bg-muted/40 overflow-hidden" style={{ maxHeight: '420px' }}>
+                <img
+                  src={imagens[0].src}
+                  alt={imagens[0].alt}
+                  className="w-full object-contain group-hover:scale-[1.02] transition-transform duration-300"
+                  style={{ maxHeight: '420px' }}
+                />
+              </div>
+              {imagens[0].legenda && (
+                <div className="flex items-center gap-2 px-4 py-2.5 bg-muted/30 border-t border-border">
+                  <Images className="h-3.5 w-3.5 text-primary shrink-0" />
+                  <p className="text-xs text-muted-foreground leading-snug">{imagens[0].legenda}</p>
+                </div>
+              )}
+            </button>
+          ) : (
+            <div className="grid grid-cols-2 gap-3">
+              {imagens.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setLightbox({ src: img.src, alt: img.alt })}
+                  className="group rounded-xl overflow-hidden border border-border hover:border-primary/60 transition-all block text-left"
+                  title="Clique para ampliar"
+                >
+                  <div className="w-full bg-muted/40 overflow-hidden aspect-video">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                    />
+                  </div>
+                  {img.legenda && (
+                    <div className="px-3 py-2 bg-muted/30 border-t border-border">
+                      <p className="text-xs text-muted-foreground leading-snug line-clamp-2">{img.legenda}</p>
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Sections */}
       {licao.secoes.map((secao, i) => {
-        const img = imagens.length > 0 ? imagens[i % imagens.length] : null
         return (
           <section key={i} className="mb-10">
-            {img && (
-              <button
-                onClick={() => setLightbox({ src: img.src, alt: img.alt })}
-                className="group w-full mb-5 rounded-xl overflow-hidden border border-border hover:border-primary/60 transition-all block text-left"
-                title="Clique para ampliar"
-              >
-                <div className="w-full bg-muted/40 overflow-hidden" style={{ maxHeight: '420px' }}>
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="w-full object-contain group-hover:scale-[1.02] transition-transform duration-300"
-                    style={{ maxHeight: '420px' }}
-                  />
-                </div>
-                {img.legenda && (
-                  <div className="flex items-center gap-2 px-4 py-2.5 bg-muted/30 border-t border-border">
-                    <Images className="h-3.5 w-3.5 text-primary shrink-0" />
-                    <p className="text-xs text-muted-foreground leading-snug">{img.legenda}</p>
-                  </div>
-                )}
-              </button>
-            )}
-
             <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
               <span className="w-1 h-5 bg-primary rounded-full inline-block" />
               {secao.titulo}

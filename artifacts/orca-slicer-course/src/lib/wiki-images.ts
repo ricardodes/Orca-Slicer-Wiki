@@ -14,25 +14,30 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
   ═══════════════════════════════════════════════════════════ */
   'interface/layout-geral': [
     I('full-sidebar.png',        'Interface completa do OrcaSlicer',          'Vista completa: barra de workflow (topo), viewer 3D (centro), painel de parâmetros (direita)'),
+    I('real-orca-interface.jpg', 'OrcaSlicer com modelo 3D carregado',        'Visualização 3D real com modelo na mesa — cores indicam paredes (verde), infill (laranja) e suporte (azul)'),
     I('modes_switch.gif',        'Alternância entre modos Simple/Advanced/Expert', 'Mude de modo no dropdown do topo — Simple oculta parâmetros avançados, Expert expõe tudo'),
-    I('real-orca-interface.jpg', 'OrcaSlicer com modelo 3D na mesa',          'Visualização 3D com modelo carregado — cores indicam paredes, infill e suporte'),
     I('process-preset.png',      'Seletor de perfil de processo',             'O perfil de processo concentra todos os parâmetros de fatiamento em abas organizadas'),
+    I('tab-popup.png',           'Menu de abas do painel lateral',            'As abas Quality, Strength, Speed, Support e Others organizam centenas de parâmetros'),
+    I('real-orca-settings-quality.jpg', 'Painel Quality em uso real',         'Configurações de Quality em impressora Bambulab — veja como ficam dispostos os parâmetros reais'),
   ],
 
   'interface/visualizacao-movimentacao': [
     I('real-orca-interface.jpg', 'Viewport 3D do OrcaSlicer',                 'Rotacione: botão direito. Pan: botão do meio. Zoom: scroll. Identifique problemas antes de imprimir'),
+    I('real-slicer-preview.jpg', 'Preview de camadas após fatiamento',        'Inspecione camada por camada deslizando a barra — identifique problemas de suporte e infill'),
     I('assembly_bed_view.png',   'Vista da mesa — assembly view',             'A aba Assembly mostra todos os objetos posicionados na cama para inspeção antes do fatiamento'),
     I('assembly_view.png',       'Multi-objeto na vista de montagem',         'Inspecione individualmente cada objeto quando vários estão na cama'),
     I('auto_orientation.png',    'Auto-orientação automática',                'O OrcaSlicer calcula a melhor orientação para minimizar suporte e maximizar resistência'),
-    I('real-slicer-preview.jpg', 'Preview de camadas após fatiamento',        'Inspecione camada por camada deslizando a barra — identifique problemas de suporte e infill'),
+    I('real-print-layers.jpg',   'Layers sendo inspecionadas no preview',     'Preview de camadas: deslize para qualquer camada e veja o percurso exato do bico'),
   ],
 
   'interface/ferramentas-avancadas': [
     I('printer-preset.png',      'Seletor de impressora',                     'Troque de impressora sem sair do projeto — limites de mesa e temperaturas atualizam automaticamente'),
     I('filament-preset.png',     'Seletor de perfil de filamento',            'Cada filamento tem perfil próprio: temperatura, fan, retração e MVS específicos'),
+    I('real-filament-profile.jpg','Perfil de filamento real no OrcaSlicer',   'Perfil de PLA configurado: temperatura extrusor 220°C, mesa 60°C, fan 100%, MVS 25 mm³/s'),
     I('process-quality.png',     'Aba Quality — parâmetros visuais',          'Layer height, line width, top/bottom shells e seam — os parâmetros mais usados no dia a dia'),
     I('process-strength.png',    'Aba Strength — parâmetros de resistência',  'Walls, infill type e density, top/bottom layers — controla resistência mecânica da peça'),
     I('process-others.png',      'Aba Others — configurações avançadas',      'Skirt, brim, elephant foot compensation, fuzzy skin e Z-hop — opções extras aqui'),
+    I('real-printer-config.jpg', 'Configuração da impressora — real',         'Painel de configuração real: volume da mesa, firmware Klipper, e parâmetros de movimento'),
   ],
 
   /* ═══════════════════════════════════════════════════════════
@@ -40,16 +45,20 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
   ═══════════════════════════════════════════════════════════ */
   'impressora/volume-firmware-limites': [
     I('orca-ui-printer-panel.jpg', 'Painel de configuração da impressora',    'Volume de impressão, firmware (Klipper/Marlin/RepRap), limites de temperatura e velocidade'),
+    I('real-printer-config.jpg',   'Configuração real de impressora',         'Interface real de configuração: volume 300×300×300 mm, Klipper, temperatura máxima do bico 300°C'),
     I('ABM-PrinterConfig.png',     'Auto Bed Mesh — configuração',            'Configure o Auto Bed Mesh nas configurações da impressora para nivelamento automático'),
     I('ABM-Machine-G-code.png',    'G-code de máquina para Auto Bed Mesh',    'O G-code START deve chamar o ABM antes de imprimir para compensar falta de planeza da mesa'),
     I('inputshaping_printer.png',  'Input Shaper nas configurações',          'Frequências de ressonância X e Y ficam no perfil de impressora — permanentes para a máquina'),
+    I('bed_type_selector.png',     'Seletor de superfície de impressão',      'PEI liso, PEI texturado, PEX, vidro — cada superfície muda temperatura e adesão'),
   ],
 
   'impressora/bico-extrusor-fluxo': [
     I('fdm-nozzle-closeup.jpg',  'Bico 0.4 mm fundindo filamento PLA',        'O diâmetro do bico define largura mínima de linha — 0.4 mm é o padrão mais versátil do mercado'),
+    I('multi_nozzle_diam.gif',   'Comparação entre diâmetros de bico',        'Bico 0.2 mm: detalhe máximo. 0.4 mm: equilíbrio. 0.6 mm+: velocidade e resistência'),
     I('cube_line_width.png',     'Line width visualizado em cubo de teste',   'Line width afeta diretamente a resistência das paredes e o acabamento superficial da peça'),
     I('line_width.png',          'Diagrama: largura de linha vs diâmetro',    'Use 75–150% do diâmetro do bico como largura de linha — acima de 150% causa underextrusion'),
     I('print-flow-caliper.jpg',  'Paquímetro medindo parede calibrada',       'Meça a parede com paquímetro e compare com o valor projetado para calibrar o Flow Ratio'),
+    I('real-flow-test-print.jpg','Peça de calibração de flow impressa',       'Cubo de parede única impresso para calibração — meça com paquímetro e ajuste o Flow Ratio'),
     I('flowcalibration-guide.png', 'Guia do processo de calibração de fluxo', 'Passo 1: grosso ±10% → Passo 2: fino ±2% — dois passes para flow ratio preciso'),
   ],
 
@@ -58,7 +67,9 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
   ═══════════════════════════════════════════════════════════ */
   'processo/quality-camadas': [
     I('orca-ui-quality-panel.jpg','Aba Quality — todas as configurações',     'Layer height: 0.1–0.35 mm para bicos 0.4 mm. Camadas finas = mais tempo, melhor visual'),
+    I('real-orca-settings-quality.jpg','Configurações Quality em uso real',   'Interface real: layer height 0.20 mm, first layer 0.25 mm, linha externa 0.42 mm configurada'),
     I('process-quality.png',     'Detalhes do painel Quality',                'First layer height recomendado: 0.25 mm para boa adesão independente da layer height geral'),
+    I('layer-height-spheres.png','Comparação visual de layer heights',        'Esferas impressas em 0.1, 0.2 e 0.3 mm: quanto mais fino, mais suave a superfície curva'),
     I('number-of-slow-layers.png','Camadas lentas no início da impressão',    'As primeiras N camadas imprimem mais devagar para garantir adesão sólida à mesa'),
     I('slow-down-for-curled-perimeters.png', 'Slow down para curling',        'Detecta curling nos overhangs e reduz velocidade automaticamente para compensar o levantamento'),
     I('top-bottom-shells.png',   'Top e bottom shells — configuração',        'Mínimo 4 camadas de top shell ou 0.8 mm total para superfície superior sem furos'),
@@ -68,14 +79,19 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
   'processo/paredes-infill': [
     I('orca-ui-strength-panel.jpg','Aba Strength — paredes e infill',         'Walls e Infill são os dois fatores que mais impactam resistência mecânica'),
     I('print-wall-strength.jpg', 'Corte transversal mostrando paredes e infill', 'Seção transversal de peça: 4 paredes + gyroid 15% — combinação ideal para peças funcionais'),
+    I('real-wall-generator.jpg', 'Wall Generator em ação — OrcaSlicer real', 'O OrcaSlicer usando Arachne preenche automaticamente regiões finas e irregulares'),
     I('infill-top-gyroid.png',   'Infill Gyroid — padrão isotrópico',         'Gyroid: único padrão verdadeiramente 3D — mesma resistência em X, Y e Z'),
+    I('real-infill-gyroid.jpg',  'Gyroid impresso em PETG — foto real',       'Cubo de PETG com Gyroid 20% cortado ao meio — estrutura ondulada tridimensional real'),
+    I('real-infill-patterns.jpg','Vários padrões de infill impressos',        'Grid, Honeycomb, Gyroid e Cubic impressos lado a lado — compare a aparência real de cada um'),
     I('infill-top-honeycomb.png','Infill Honeycomb — resistência lateral',    'Hexagonais resistem bem à compressão lateral com boa relação rigidez/peso'),
     I('print-infill-crosssection.jpg', 'Infill gyroid visto por dentro',      'Cubo cortado ao meio revelando a estrutura interna do Gyroid — geometria ondulada 3D'),
   ],
 
   'processo/cooling-support-adhesion': [
     I('orca-ui-support-panel.jpg','Painel de suporte — configurações',        'Normal vs Tree support, threshold, interface layers e removabilidade controlados aqui'),
+    I('real-orca-support-settings.jpg','Configurações de suporte reais',      'Suporte em Tree, threshold 40°, interface layers 2, espaçamento 0.2 mm — configuração real'),
     I('3dprint-overhang-test.jpg','Teste de overhangs — 0° a 70°',            'FDM consegue imprimir até 45–50° sem suporte com cooling adequado e velocidade controlada'),
+    I('real-support-removal.jpg','Suporte sendo removido — resultado',        'Interface layers adequadas: suporte sai com os dedos e deixa superfície limpa'),
     I('brim.png',                'Brim na primeira camada',                   'Brim aumenta área de contato com a mesa — essencial para ABS, ASA e peças pequenas'),
     I('brim-outer.png',          'Brim externo — o mais comum',               'Adiciona N linhas ao redor da peça para evitar warping — padrão para materiais difíceis'),
     I('skirt.png',               'Skirt — linha de purga ao redor',           'O skirt purga o filamento antes de começar a peça — garante fluxo estável no início'),
@@ -86,9 +102,11 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
   ═══════════════════════════════════════════════════════════ */
   'materiais/pla-petg': [
     I('print-pla-quality.jpg',   'Peça em PLA laranja — alta qualidade FDM',  'PLA a 215–220°C, mesa 60°C, fan 100%: melhor acabamento superficial de todos os materiais FDM'),
-    I('print-temp-calibration.jpg','Temperature Tower — encontrando a temp ideal', 'Imprima uma temperature tower com material novo antes de qualquer peça final'),
+    I('real-temp-tower-print.jpg','Temperature Tower real — análise visual',  'Torre de temperatura PLA impressa: identifique o bloco com pontes mais limpas e overhangs firmes'),
+    I('print-temp-calibration.jpg','Temperature Tower — configuração no OrcaSlicer', 'Menu de Temperature Tower: selecione o material e a faixa 190–230°C — gerada automaticamente'),
     I('bed_type_material_temperature.png','Temperatura da mesa por superfície','PEI texturado: 60°C PLA, 70°C PETG — a superfície da mesa impacta diretamente a adesão'),
     I('print-petg-clear.jpg',    'PETG transparente — estrutura interna visível','PETG a 235–245°C, fan reduzida: boa adesão entre camadas e resistência química'),
+    I('real-benchy-highquality.jpg','Benchy em PLA — resultado de excelência', 'Benchy impresso com PLA calibrado: linhas invisíveis, seam discreta, bridge perfeita'),
     I('FilamentShrinkageCompensation.png','Compensação de encolhimento',       'Configure shrinkage% no perfil de filamento para peças dimensionalmente precisas'),
   ],
 
@@ -98,6 +116,7 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
     I('Chamber-Temperature-Control-Printer.png', 'Config de câmara na impressora','Configure temperatura de câmara no perfil da impressora para materiais de engenharia'),
     I('print-tpu-flexible.jpg',  'TPU sendo dobrado — flexibilidade real',    'TPU a 220–240°C em Direct Drive, 25–40 mm/s: peças flexíveis resistentes e elásticas'),
     I('FilamentShrinkageCompensation.png','Shrinkage: ABS ~0.8%, PA ~1.5%',   'ABS encolhe mais que PETG — use compensação de encolhimento para encaixes precisos'),
+    I('filament_for_features.png','Material diferente por feature — multi-material','Configure suporte solúvel + material principal — remoção limpa sem marcas em geometrias complexas'),
   ],
 
   /* ═══════════════════════════════════════════════════════════
@@ -105,25 +124,31 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
   ═══════════════════════════════════════════════════════════ */
   'calibracao/temp-flow-pa': [
     I('calibration.png',         'Menu de calibração — ponto de partida',     'Acesse em Calibrate: Temperature Tower, Max Flow Rate, Flow Ratio, Pressure Advance, Retraction'),
+    I('real-calibration-menu.jpg','Menu de calibração real — OrcaSlicer',     'Interface real do menu Calibrate com todos os testes disponíveis e suas descrições'),
     I('temp-tower_test_menu.png','Configuração da Temperature Tower',          'Selecione o material e a faixa de temperaturas — a torre é gerada automaticamente'),
-    I('print-temp-calibration.jpg','Temperature Tower impressa — análise visual','Bloco com pontes mais limpas + overhangs firmes + superfície brilhante = temperatura ideal'),
+    I('real-temp-tower-print.jpg','Temperature Tower impressa — análise',     'Torre de temperatura PLA impressa: bloco 215°C tem pontes limpas + overhangs firmes'),
+    I('print-temp-calibration.jpg','Temperature Tower — análise visual completa','Bloco com pontes mais limpas + overhangs firmes + superfície brilhante = temperatura ideal'),
     I('print-flow-caliper.jpg',  'Paquímetro calibrando Flow Ratio',          'Passo 1 grosso: ±10% até chegar perto. Passo 2 fino: ±2% medindo com paquímetro'),
+    I('real-flow-test-print.jpg','Peça de calibração de flow — resultado real','Cubo de parede única impresso em PLA — meça com paquímetro e ajuste o Flow Ratio'),
     I('flowcalibration-guide.png','Guia de dois passos para Flow Rate',        'Calibre sempre o flow ANTES do PA — flow incorreto invalida toda calibração seguinte'),
     I('flowrate-pass1-monotonic.jpg','Flow calibration — primeira passagem',   'Primeira passagem: ajuste grosseiro. Identifique se está acima ou abaixo do ideal'),
     I('flowrate-pass2-monotonic.jpg','Flow calibration — segunda passagem',    'Segunda passagem fina: ajuste mínimo até a parede ficar exatamente na espessura projetada'),
     I('pa-lines.png',            'Teste de Pressure Advance por linhas',       'Encontre a linha com cantos nítidos SEM blobs — esse número é seu PA ideal'),
+    I('real-pa-lines-print.jpg', 'PA Lines impressas — foto real',             'Linhas de PA impressas: identifique visualmente onde os cantos ficam mais nítidos sem blob'),
     I('print-pa-bad-vs-good.jpg','PA incorreto vs calibrado — comparação',     'Esquerda: blobs nos cantos (PA baixo). Direita: cantos nítidos limpos (PA calibrado)'),
+    I('print-pa-corner-detail.jpg','Detalhe de canto com PA calibrado',        'Macro de canto de cubo com PA correto — transição limpa, sem acúmulo de material'),
   ],
 
   'calibracao/retraction-input-shaper': [
     I('retraction_test_menu.png','Menu de teste de retração',                  'DD: 0–3 mm / Bowden: 3–8 mm / Velocidade: 30–60 mm/s — comece pelo meio da faixa'),
+    I('real-retraction-tower.jpg','Torre de retração impressa — foto real',   'Observe as pontes entre as colunas: a primeira seção sem fios finos é seu valor ideal'),
     I('print-retraction-stringing.jpg','Torre de retração — stringing visível','Identifique o valor mínimo que elimina o stringing sem causar underextrusion no reinício'),
     I('retraction_test_measure.png','Medir o stringing nas seções',            'Use luz lateral para revelar fios finos — a seção limpa mais baixa é sua retração ideal'),
     I('IS_freq_menu.png',        'Menu de calibração de frequência IS',        'O teste de frequência gera um padrão que revela as frequências de vibração da máquina'),
     I('IS_freq_marlin_print_measure.jpg','Medição do padrão de ringing',       'Conte os picos entre os marcadores — cada eixo (X e Y) tem frequência própria'),
     I('IS_damp_menu.png',        'Menu de damping ratio — amortecimento',      'Após encontrar a frequência, calibre o damping: valores típicos 0.05–0.15'),
     I('inputshaping_printer.png','Input Shaper nas configurações de movimento', 'Frequência e damping ficam no perfil de impressora — habilitam alta velocidade sem ghosting'),
-    I('real-input-shaper-print.jpg','Antes/depois do Input Shaper',           'Esquerda: ghosting/ringing. Direita: superfície limpa com Input Shaper ativo'),
+    I('real-input-shaper-print.jpg','Antes/depois do Input Shaper',           'Esquerda: ghosting/ringing nas paredes. Direita: superfície limpa com Input Shaper ativo'),
   ],
 
   /* ═══════════════════════════════════════════════════════════
@@ -131,15 +156,19 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
   ═══════════════════════════════════════════════════════════ */
   'engenharia/direcao-camadas-tensoes': [
     I('print-layer-adhesion.jpg','Adesão entre camadas — macro side view',     'A resistência entre camadas (Z) é sempre a mais fraca — oriente a peça para carregar em XY'),
+    I('print-wall-strength.jpg', 'Cross-section: paredes e infill',            'Seção transversal mostrando como paredes encapsulam o infill — as paredes são a estrutura'),
     I('fill-direction.png',      'Direção do infill configurável',             'Rotacione o infill para alinhar as linhas com a direção das forças que a peça sofrerá'),
     I('fill-direction-to-model.png','Direção relativa ao modelo',              'Fill Direction to Model orienta o infill relativo ao eixo longo da peça automaticamente'),
+    I('fill-rotation.png',       'Rotação do infill — fill rotation',          'Gire o padrão de infill para que as linhas fiquem paralelas à direção de maior tensão'),
     I('makers-muse-walls-strength.png','Estudo: paredes vs resistência',       'Mais paredes = resistência muito maior. Infill acima de 40% tem retorno decrescente'),
-    I('print-wall-strength.jpg', 'Cross-section: paredes e infill',            'Seção transversal mostrando como paredes encapsulam o infill — as paredes são a estrutura'),
+    I('print-functional-gears.jpg','Engrenagens funcionais — resultado',       'Engrenagens PLA pretas que realmente funcionam: 4 paredes, Gyroid 30%, camadas paralelas à carga'),
   ],
 
   'engenharia/infill-resistencia': [
     I('print-infill-comparison-side.jpg','Comparação de infill cortado',       'Cubos com grid, honeycomb, gyroid e cubic cortados — veja como cada um preenche o volume'),
+    I('real-infill-patterns.jpg','Padrões de infill reais impressos',          'Grid, Honeycomb, Gyroid e Cubic impressos em PETG — compare a estrutura real de cada padrão'),
     I('infill-top-gyroid.png',   'Gyroid — isotrópico em todos os eixos',      'O único padrão verdadeiramente 3D: igual resistência X, Y e Z — ideal para carga multidirecional'),
+    I('real-infill-gyroid.jpg',  'Gyroid em PLA — foto de peça cortada',       'Cubo cortado ao meio revelando Gyroid 20% em PLA — geometria ondulada tridimensional real'),
     I('print-infill-crosssection.jpg','Gyroid em PETG — estrutura interna',    'A estrutura ondulada tridimensional do Gyroid vista por dentro de peça cortada'),
     I('infill-top-cubic.png',    'Cubic — quasi-isotrópico e rápido',          'Resistência próxima ao Gyroid com tempo de impressão menor — melhor equilíbrio prático'),
     I('infill-top-adaptive-cubic.png','Adaptive Cubic — mais denso nas bordas','Densifica automaticamente perto das paredes onde resistência importa — economiza material no centro'),
@@ -152,6 +181,8 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
   'otimizacao/tempo-material-resistencia': [
     I('print-quality-comparison.jpg','Velocidade vs qualidade — 4 níveis',    'Da esquerda: ultra quality 0.1mm → draft 0.4mm. Escolha o equilíbrio certo para cada peça'),
     I('orca-ui-speed-panel.jpg', 'Painel de velocidades do OrcaSlicer',        'Cada estrutura tem velocidade independente: parede externa lenta, parede interna rápida'),
+    I('real-orca-speed-panel.jpg','Painel de velocidades em uso real',         'Velocidades reais configuradas: parede externa 100 mm/s, interna 200 mm/s, infill 300 mm/s'),
+    I('ers-intro.png',           'ERS — Extrusion Rate Smoothing',             'O ERS suaviza as transições de velocidade para evitar underextrusion em mudanças bruscas'),
     I('ers-printspeed.png',      'ERS limita velocidade pelo MVS',             'A velocidade real é limitada pelo MVS: Speed = MVS ÷ Área da seção transversal da linha'),
     I('ers-artefact.jpg',        'Artefatos de velocidade excessiva',          'Blobs e ondas nas paredes = velocidade acima do MVS ou aceleração muito alta'),
     I('infill-ghosting.png',     'Ghosting causado por infill rápido',         'Infill rápido cria vibrações que aparecem como ondas simétricas nas paredes externas'),
@@ -164,16 +195,21 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
   'estudos-de-caso/funcionais-mecanicas': [
     I('print-functional-gears.jpg','Engrenagens funcionais em PLA preto',      'Peças mecânicas funcionais: 4+ paredes, Gyroid 30%+, orientação estratégica das camadas'),
     I('OrcaToleranceTest_print.jpg','Teste de tolerâncias do OrcaSlicer',      'Imprima o OrcaTolerance Test para descobrir a folga funcional mínima do seu setup'),
-    I('real-tolerance-test.jpg', 'Paquímetro verificando encaixe',             'Medir sempre com paquímetro — a diferença entre projeto e impressão pode ser 0.1–0.5 mm'),
+    I('OrcaToleranceTes_m6.jpg', 'Tolerância M6 — teste de encaixe',           'Teste de encaixe M6: verifique se a rosca entra corretamente com a folga calibrada'),
+    I('real-tolerance-test.jpg', 'Paquímetro verificando encaixe funcional',   'Medir sempre com paquímetro — a diferença entre projeto e impressão pode ser 0.1–0.5 mm'),
     I('elephant-foot-compensation.png','Compensação de Elephant Foot',         'Primeira camada esmagada reduz furos e aumenta bases — corrija com Elephant Foot Compensation'),
     I('PolyHoles.png',           'PolyHoles — furos circulares precisos',      'Furos circulares FDM saem menores — PolyHoles converte para polígono que compensa o erro'),
+    I('PreciseZOff.png',         'Sem Precise Z — variação na base',           'Sem a compensação, a primeira camada varia em espessura — furos inferiores ficam imprecisos'),
+    I('PreciseZOn.png',          'Com Precise Z — base uniforme',              'Com Precise Z-height a primeira camada mantém altura consistente em toda a área da peça'),
   ],
 
   'estudos-de-caso/decorativos-comerciais': [
     I('print-fuzzy-skin-product.jpg','Vaso com Fuzzy Skin — produto decorativo','Fuzzy Skin cria texturas orgânicas que escondem marcas de camada — acabamento premium'),
+    I('real-fuzzy-skin.jpg',     'Fuzzy Skin em peça real — resultado final',  'Textura organic impressa em PLA: parece pedra, esconde as linhas FDM completamente'),
     I('Fuzzy-skin-voronoi.png',  'Padrão Voronoi — células irregulares',       'Voronoi cria células que lembram pedra ou couro — efeito decorativo único e sofisticado'),
+    I('Fuzzy-skin-ripple.png',   'Fuzzy Skin Ripple — ondas concêntricas',     'Padrão ripple em peças cilíndricas: efeito de ondas concêntricas dramático e natural'),
     I('print-ironing-closeup.jpg','Ironing — antes e depois, macro',           'Ironing: esquerda rugoso com linhas FDM visíveis. Direita: quase polido, brilhante'),
-    I('Fuzzy-skin-ripple.png',   'Fuzzy Skin Ripple — ondas',                  'Padrão ripple em peças cilíndricas: efeito de ondas concêntricas dramático e natural'),
+    I('real-ironing-surface.jpg','Superfície após ironing — foto real',        'Topo de cubo PLA após ironing: superfície quase espelhada em comparação ao padrão sem ironing'),
     I('stl-transformation-smooth-rough.png','STL smooth vs rough transform',   'O OrcaSlicer pode suavizar ou adicionar rugosidade à malha STL sem precisar de CAD'),
   ],
 
@@ -183,8 +219,10 @@ export const wikiImagensPorAula: Record<string, WikiImagem[]> = {
   'comercial/custo-lucro-perfis': [
     I('slicer-time-estimate.jpg','Estimativa de tempo e material',             'O OrcaSlicer estima tempo e gramas antes de imprimir — base para cálculo de custo e preço'),
     I('orca-ui-filament-panel.jpg','Perfis de filamento por custo/fornecedor', 'Organize filamentos por custo/kg e MVS real — calcule custo exato de cada trabalho'),
+    I('real-filament-profile.jpg','Perfil de filamento real — parâmetros',    'Perfil real de PLA: custo, temperatura, MVS e configurações de retração por material'),
     I('print-quality-comparison.jpg','Qualidade vs velocidade vs lucro',       'Velocidade maior = mais peças/hora = mais lucro — se qualidade for aceita pelo cliente'),
     I('print-batch-production.jpg','Cama cheia — produção em lote',            'Organize a cama para maximizar número de peças por impressão e reduzir custo fixo por peça'),
+    I('fdm-farm-printers.jpg',   'Farm de impressoras — produção escalada',    'Multiple impressoras rodando em paralelo com perfis padronizados — produção em escala real'),
     I('print-pla-quality.jpg',   'Produto final de alta qualidade',            'Acabamento comercial: ironing, seam posicionada atrás, sem stringing, tolerâncias corretas'),
   ],
 
