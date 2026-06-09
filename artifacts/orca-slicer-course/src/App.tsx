@@ -1,7 +1,16 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import { useEffect } from "react";
 import { HomePage } from "@/pages/home";
 import { ModuloPage } from "@/pages/modulo";
 import { LicaoPage } from "@/pages/licao";
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location]);
+  return null;
+}
 
 function NotFound() {
   return (
@@ -17,12 +26,15 @@ function NotFound() {
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={HomePage} />
-      <Route path="/modulo/:slug" component={ModuloPage} />
-      <Route path="/modulo/:moduloSlug/:licaoSlug" component={LicaoPage} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={HomePage} />
+        <Route path="/modulo/:slug" component={ModuloPage} />
+        <Route path="/modulo/:moduloSlug/:licaoSlug" component={LicaoPage} />
+        <Route component={NotFound} />
+      </Switch>
+    </>
   );
 }
 
