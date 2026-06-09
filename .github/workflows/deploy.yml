@@ -3,9 +3,8 @@ name: Deploy no GitHub Pages
 on:
   push:
     branches:
-      - main  # dispara a cada push na branch main
-
-  workflow_dispatch: # permite rodar manualmente pelo GitHub
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -27,20 +26,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
-          cache-dependency-path: artifacts/orca-slicer-course/package.json
 
-      - name: Instalar dependências
-        working-directory: artifacts/orca-slicer-course
-        run: npm install
+      - name: Instalar pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Instalar dependências (raiz do workspace)
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build
         working-directory: artifacts/orca-slicer-course
-        run: npm run build
+        run: pnpm run build
         env:
           NODE_ENV: production
 
-      - name: Copiar 404.html para pasta dist
+      - name: Copiar 404.html para dist
         working-directory: artifacts/orca-slicer-course
         run: cp public/404.html dist/404.html
 
